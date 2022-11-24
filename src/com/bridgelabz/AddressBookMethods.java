@@ -13,9 +13,8 @@ public class AddressBookMethods {
 	static Scanner input = new Scanner(System.in);
 	int index;
 	
-	//UC 1 ability to create a contacts in abbdress book with the details
-
-	// adding details   *******UC1*******
+	//UC 2 ability to a new contact in address book.
+	// adding details   *******UC2*******
 	public void AddingDetails() {
 
 		System.out.println(" Enter how many persons you want to add in contact book: ");
