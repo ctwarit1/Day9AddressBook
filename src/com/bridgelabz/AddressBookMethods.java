@@ -15,15 +15,65 @@ public class AddressBookMethods {
 	
 	
 	
+//	starting of program
+	public void startOfProgram() {
+		int num;
+		System.out.println();
+		System.out.println("************ Welcome to the Address Book Program ************");
+		String text;
+		do {
+			System.out.println("1. Add a new contact");
+			System.out.println("2. Edit existing contact using First Name");
+			System.out.println("3. Delete the persons details using First Name");
+			System.out.println("4. press 4 for exit");
+			num = input.nextInt();
+			switch (num) {
+			case 1:
+				AddingDetails();
+//					showContacts();
+				break;
+			case 2:
+				editDetails();
+
+				break;
+			case 3:
+				deleteDetails();
+		
+				break;
+			case 4:
+				System.out.println();
+				break;
+
+			default:
+				System.out.println("Wrong input");
+			}
+			showContacts();
+			System.out.println("Press c for continue");
+			text = input.next();
+		} while (text.equalsIgnoreCase(text));
+		System.out.println("**** Thanks for using the Address Book ****");
+
+	}
 	
+	// non-static method for storing in array
+		public void storeArray(AddressBook contact) {
+
+			contactsArray[index] = contact;
+			index++;
+
+		}
+
 	//UC 2 ability to a new contact in address book.
+	
 	// adding details   *******UC2*******
+	
 	public void AddingDetails() {
 
 		System.out.println(" Enter how many persons you want to add in contact book: ");
 		int n = input.nextInt();
 		for (int i = 0; i < n; i++) {
 
+			
 			System.out.println("***Enter persons details***");
 			System.out.println("Enter First name: ");
 			String firstName = input.next();
@@ -114,3 +164,46 @@ public class AddressBookMethods {
 				}
 			}
 		}
+		
+//		UC4 ability to delete a contact using their first name
+		
+		
+//			method for delete        *********UC4************
+		
+		
+		public void deleteDetails() {
+			System.out.println("Enter name of person whose details you want to delete");
+			Scanner input = new Scanner(System.in);
+			String fName = input.next();
+			for (AddressBook edit : contactsArray) {
+				edit = null;
+				if (edit == null) {
+				} else {
+					if (fName.equals(edit.getFirstName())) {
+						edit.setFirstName(null);
+						edit.setAddress(null);
+						edit.setCity(null);
+						edit.setEmail(null);
+						edit.setLastName(null);
+						edit.setState(null);
+						edit.setZip(0);
+						edit.setPhoneNumber(0);
+						
+					}
+					}
+			}	
+		}
+			
+			
+		public void showContacts() {
+			for (int i = 0; i < contactsArray.length; i++) {
+				if (contactsArray[i] != null)
+					System.out.println(contactsArray[i]);
+
+			}
+
+			System.out.println("No more Contacts !");
+		}
+	}
+
+
